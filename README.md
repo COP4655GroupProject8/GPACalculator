@@ -71,8 +71,7 @@ The purpose of our app is to create an app that allow FIU students to easily cal
 
 
 ## Wireframes
-
-[Add picture of your hand sketched wireframes in this section]
+![screenshot](IMG_0238.jpg)
 
 ### [BONUS] Digital Wireframes & Mockups
 
