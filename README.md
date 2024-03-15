@@ -43,31 +43,36 @@ The purpose of our app is to create an app that allow FIU students to easily cal
 
 ### 2. Screen Archetypes
 
-- [ ] [**Screen Name, e.g., Login Screen**]
-* [Required User Feature: User can log in.]
-- [ ] [**Another Screen Name**]
-* [Associated required user story]
-...
-...
-...
-
+- [ ] Landing Screen
+* User can login
+* User can signup
+- [ ] Login screen
+* User can login using credentials
+- [ ] Sign up screen
+* Users can register for a new account
+- [ ] History screen
+* User can view history of their past grades
+- [ ] What If? Screen
+* Student can enter their estimate grade to estimate their GPA
+- [ ] Goals
+* User can insert target GPA and required grade to achieve it
 ### 3. Navigation
 
 **Tab Navigation** (Tab to Screen)
 
 
-- [ ] [First Tab, e.g., Home Feed]
-- [ ] [Second Tab, e.g., Profile]
-...
-...
-...
+- [ ] [GPA Calculator] Lead to GPA calcualtor where grades are inserted
+- [ ] [History] Demonstrates past grades that the user had and their overall GPA at the time
+- [ ] [What if?] Screen that will allow user to enter their expected grade (or outcome of a particular grade for an assignment) and how it could affect their overall GPA
+- [ ] [Goals] Screen that allow users to set a target GPA and show minimum grade on assigments required to achieve grade
 
 **Flow Navigation** (Screen to Screen)
 
-- [ ] [**Screen Name**]
-  * Leads to [**Next Screen**]
-- [ ] [**Another Screen Name**]
-  * Leads to [**Another Screen**] 
+- [ ] Landing Page
+  * Leads to main page if username & password is entered
+  * Leads to sign up page if user needs to sign up
+- [ ] Sign up page
+  * Leads to main app page once an account is created
 
 
 ## Wireframes
