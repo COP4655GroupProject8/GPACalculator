@@ -9,6 +9,7 @@ Original App Design Project - README Template
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
 4. [Schema](#Schema)
+5. [Progress Video](#Progress-Video)
 
 ## Overview
 
@@ -103,3 +104,8 @@ The purpose of our app is to create an app that allow FIU students to easily cal
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+### Progress Video
+
+
+
