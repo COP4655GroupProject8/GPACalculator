@@ -55,7 +55,7 @@ The purpose of our app is to create an app that allow FIU students to easily cal
 * User can view history of their past grades
 - [ ] What If? Screen
 * Student can enter their estimate grade to estimate their GPA
-- [ ] Goals
+- [ X ] Goals
 * User can insert target GPA and required grade to achieve it
 ### 3. Navigation
 
