@@ -13,6 +13,9 @@
 		CEBA1FCF2BB8979600F19A30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBA1FCD2BB8979600F19A30 /* Main.storyboard */; };
 		CEBA1FD12BB8979A00F19A30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBA1FD02BB8979A00F19A30 /* Assets.xcassets */; };
 		CEBA1FD42BB8979A00F19A30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBA1FD22BB8979A00F19A30 /* LaunchScreen.storyboard */; };
+		CEBA1FE12BBF447C00F19A30 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA1FE02BBF447C00F19A30 /* HistoryViewController.swift */; };
+		CEBA1FE32BBF448C00F19A30 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA1FE22BBF448C00F19A30 /* AddClassViewController.swift */; };
+		CEBA1FE62BBF462600F19A30 /* AddClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA1FE52BBF462600F19A30 /* AddClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		CEBA1FD02BB8979A00F19A30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEBA1FD32BB8979A00F19A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEBA1FD52BB8979A00F19A30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEBA1FE02BBF447C00F19A30 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		CEBA1FE22BBF448C00F19A30 /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
+		CEBA1FE52BBF462600F19A30 /* AddClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		CEBA1FC62BB8979600F19A30 /* GPACalculator */ = {
 			isa = PBXGroup;
 			children = (
+				CEBA1FE42BBF45F000F19A30 /* Models */,
+				CEBA1FDF2BBF442500F19A30 /* History */,
 				CEBA1FC72BB8979600F19A30 /* AppDelegate.swift */,
 				CEBA1FC92BB8979600F19A30 /* SceneDelegate.swift */,
 				CEBA1FCB2BB8979600F19A30 /* ViewController.swift */,
@@ -65,6 +73,23 @@
 				CEBA1FD52BB8979A00F19A30 /* Info.plist */,
 			);
 			path = GPACalculator;
+			sourceTree = "<group>";
+		};
+		CEBA1FDF2BBF442500F19A30 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA1FE02BBF447C00F19A30 /* HistoryViewController.swift */,
+				CEBA1FE22BBF448C00F19A30 /* AddClassViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		CEBA1FE42BBF45F000F19A30 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA1FE52BBF462600F19A30 /* AddClass.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +108,8 @@
 			dependencies = (
 			);
 			name = GPACalculator;
+			packageProductDependencies = (
+			);
 			productName = GPACalculator;
 			productReference = CEBA1FC42BB8979600F19A30 /* GPACalculator.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +138,8 @@
 				Base,
 			);
 			mainGroup = CEBA1FBB2BB8979600F19A30;
+			packageReferences = (
+			);
 			productRefGroup = CEBA1FC52BB8979600F19A30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,7 +169,10 @@
 			files = (
 				CEBA1FCC2BB8979600F19A30 /* ViewController.swift in Sources */,
 				CEBA1FC82BB8979600F19A30 /* AppDelegate.swift in Sources */,
+				CEBA1FE62BBF462600F19A30 /* AddClass.swift in Sources */,
 				CEBA1FCA2BB8979600F19A30 /* SceneDelegate.swift in Sources */,
+				CEBA1FE32BBF448C00F19A30 /* AddClassViewController.swift in Sources */,
+				CEBA1FE12BBF447C00F19A30 /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
