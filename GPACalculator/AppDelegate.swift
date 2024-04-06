@@ -20,11 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ParseSwift.initialize(applicationId: "9offAlrlWddViV1RFN0IC0efSGHhORICDpdvFNDC",
                               clientKey: "RaORxDKUPuDu6HHB05osbM2vOhmU7vGcQGN0Qgq9",
                               serverURL: URL(string: "https://parseapi.back4app.com")!)
-//        // Initialize a fake student
-//        fakeStudent = Student(studentID: "123456789")
-//        fakeStudent?.addClass(semester: "Spring", year: 2024, className: "Math", creditHours: 3, grade: "A")
-//        fakeStudent?.addClass(semester: "Spring", year: 2024, className: "Science", creditHours: 4, grade: "B")
-//        print(fakeStudent)
         return true
     }
 

@@ -8,13 +8,17 @@
 import UIKit
 
 class HomePageViewController: UIViewController {
-
+    var currentStudent: Student?
+    
     @IBAction func LogOutButtonClick(_ sender: Any) {
         showConfirmLogoutAlert()
     }
     @IBAction func GPACalculatorButton(_ sender: Any) {
         print("Button")
-    }
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GPAViewController") as! GPAViewController
+           vc.currentStudent = currentStudent
+           self.navigationController?.pushViewController(vc, animated: true) // Push the GPAViewController onto the navigation stack
+       }
     @IBAction func HistoryButton(_ sender: Any) {
     }
     @IBAction func WhatIfButton(_ sender: Any) {
@@ -26,7 +30,11 @@ class HomePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Initialize a fake student
+        currentStudent = Student(studentID: "123456789")
+        currentStudent?.addClass(semester: "Spring", year: 2024, className: "Math", creditHours: 3, grade: "A")
+        currentStudent?.addClass(semester: "Spring", year: 2024, className: "Science", creditHours: 4, grade: "B")
+        print(currentStudent?.studentID)
         // Do any additional setup after loading the view.
     }
     
