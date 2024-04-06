@@ -11,11 +11,16 @@ import ParseSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var fakeStudent: Student?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        // Initialize a fake student
+        fakeStudent = Student(studentID: "123456789")
+        fakeStudent?.addClass(semester: "Spring", year: 2024, className: "Math", creditHours: 3, grade: "A")
+        fakeStudent?.addClass(semester: "Spring", year: 2024, className: "Science", creditHours: 4, grade: "B")
+        print(fakeStudent)
         return true
     }
 
