@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tln-s7-rOS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tln-s7-rOS">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Goals-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Goals" id="BYZ-38-t0r" customClass="ViewController" customModule="GPACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Goals" id="BYZ-38-t0r" customClass="GoalsViewController" customModule="GPACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,52 +141,66 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QAq-jl-HkA"/>
+                    <connections>
+                        <outlet property="CalculateButton" destination="lPb-mU-GOq" id="K1v-O5-e9K"/>
+                        <outlet property="CurrentGPALabel" destination="9f1-rw-kRl" id="Q8g-O2-6cU"/>
+                        <outlet property="TargetGPALabel" destination="cBx-eu-33k" id="FZ2-PC-2HM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2682" y="-27"/>
         </scene>
-        <!--View Controller-->
+        <!--Home Page-->
         <scene sceneID="Ecf-jL-SfE">
             <objects>
-                <viewController id="HhK-1O-4dX" sceneMemberID="viewController">
+                <viewController title="Home Page" id="HhK-1O-4dX" customClass="HomePageViewController" customModule="GPACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ga-mC-RbF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="85" translatesAutoresizingMaskIntoConstraints="NO" id="KeT-cw-A2g">
-                                <rect key="frame" x="127" y="137.99999999999997" width="139" height="392.33333333333326"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="KeT-cw-A2g">
+                                <rect key="frame" x="50" y="253" width="293" height="227.33333333333337"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dE2-eq-One">
-                                        <rect key="frame" x="0.3333333333333286" y="0.0" width="138.66666666666669" height="34.333333333333336"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="293" height="34.333333333333336"/>
+                                        <state key="normal" title="GPA Calculator"/>
                                         <buttonConfiguration key="configuration" style="filled" title="GPA Calculator"/>
                                         <connections>
+                                            <action selector="GPACalculatorButton:" destination="gu0-a9-f19" eventType="touchUpInside" id="hul-DA-elJ"/>
+                                            <action selector="GPACalculatorButton:" destination="HhK-1O-4dX" eventType="touchUpInside" id="pwy-bQ-7Ji"/>
                                             <segue destination="oxr-mj-kLu" kind="show" id="KHc-7X-ec6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40v-3a-19m">
-                                        <rect key="frame" x="30.33333333333335" y="119.3333333333333" width="78.666666666666686" height="34.333333333333329"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="64.333333333333314" width="293" height="34.333333333333343"/>
+                                        <state key="normal" title="History"/>
                                         <buttonConfiguration key="configuration" style="filled" title="History"/>
                                         <connections>
+                                            <action selector="HistoryButton:" destination="gu0-a9-f19" eventType="touchUpInside" id="Aj4-DZ-SJS"/>
+                                            <action selector="HistoryButton:" destination="HhK-1O-4dX" eventType="touchUpInside" id="BW6-vM-uoD"/>
                                             <segue destination="omi-F1-Nx5" kind="show" id="Lxu-oA-qTb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHc-eE-yhp">
-                                        <rect key="frame" x="30.333333333333336" y="238.66666666666669" width="78.333333333333314" height="34.333333333333314"/>
-                                        <state key="normal" title="Button"/>
+                                        <rect key="frame" x="0.0" y="128.66666666666669" width="293" height="34.333333333333343"/>
+                                        <state key="normal" title="What if"/>
                                         <buttonConfiguration key="configuration" style="filled" title="What if"/>
                                         <connections>
+                                            <action selector="WhatIfButton:" destination="gu0-a9-f19" eventType="touchUpInside" id="V1N-g5-6Ub"/>
+                                            <action selector="WhatIfButton:" destination="HhK-1O-4dX" eventType="touchUpInside" id="jKo-rO-PCV"/>
                                             <segue destination="L9o-wM-hLv" kind="show" id="VK7-JV-SWr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acE-HS-m5x">
-                                        <rect key="frame" x="35.999999999999993" y="358" width="67.333333333333314" height="34.333333333333314"/>
-                                        <state key="normal" title="Button"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVe-9K-EFl">
+                                        <rect key="frame" x="0.0" y="193" width="293" height="34.333333333333343"/>
+                                        <state key="normal" title="What if"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Goals"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="gv6-Gh-w9X"/>
+                                            <action selector="GoalsButton:" destination="HhK-1O-4dX" eventType="touchUpInside" id="OBk-BI-tp1"/>
+                                            <action selector="WhatIfButton:" destination="gu0-a9-f19" eventType="touchUpInside" id="hsI-pq-Iqi"/>
+                                            <action selector="WhatIfButton:" destination="HhK-1O-4dX" eventType="touchUpInside" id="xgK-Ar-3Hk"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="Vzv-xX-Uxy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -195,13 +210,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KeT-cw-A2g" firstAttribute="centerX" secondItem="3Ga-mC-RbF" secondAttribute="centerX" id="4Xi-uU-2dE"/>
-                            <constraint firstItem="KeT-cw-A2g" firstAttribute="leading" secondItem="x6n-UI-qxU" secondAttribute="leading" constant="127" id="dNY-ZP-vHw"/>
-                            <constraint firstItem="KeT-cw-A2g" firstAttribute="top" secondItem="x6n-UI-qxU" secondAttribute="top" constant="35" id="pOQ-xz-9jc"/>
+                            <constraint firstItem="KeT-cw-A2g" firstAttribute="leading" secondItem="x6n-UI-qxU" secondAttribute="leading" constant="50" id="dNY-ZP-vHw"/>
+                            <constraint firstItem="KeT-cw-A2g" firstAttribute="top" secondItem="x6n-UI-qxU" secondAttribute="top" constant="150" id="pOQ-xz-9jc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XIL-3D-XvV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3M-qh-JKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gu0-a9-f19" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1800.7633587786258" y="-27.464788732394368"/>
         </scene>
@@ -240,12 +256,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Year" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x05-nw-q7w">
                                 <rect key="frame" x="194" y="160" width="160" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ex Fall" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoY-0u-vf3">
-                                <rect key="frame" x="67" y="198" width="82" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -308,6 +318,17 @@
                                     <segue destination="geZ-Qi-pVj" kind="show" id="wEf-y4-h3V"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekQ-aT-fsa">
+                                <rect key="frame" x="76" y="200" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <menu key="menu" id="Cx0-xl-wOs">
+                                    <children>
+                                        <command title="Item 1" id="cQU-2C-Pp0"/>
+                                        <command title="Item 2" id="iwc-8k-AfE"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Fall 2024"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XiU-Nl-mFO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -319,15 +340,11 @@
                             <constraint firstItem="4qI-pd-x53" firstAttribute="trailing" secondItem="WPB-Og-l2K" secondAttribute="trailingMargin" id="6lx-xt-vfy"/>
                             <constraint firstItem="4qI-pd-x53" firstAttribute="leading" secondItem="WPB-Og-l2K" secondAttribute="leadingMargin" id="B5v-gG-1M7"/>
                             <constraint firstItem="xAn-eT-23f" firstAttribute="top" secondItem="2Bc-ks-Jkj" secondAttribute="bottom" constant="36" id="BFc-c8-QSc"/>
-                            <constraint firstItem="1b0-Wf-THM" firstAttribute="firstBaseline" secondItem="AoY-0u-vf3" secondAttribute="firstBaseline" id="IiW-br-U7b"/>
                             <constraint firstItem="Fpv-jw-fLO" firstAttribute="top" secondItem="1b0-Wf-THM" secondAttribute="bottom" constant="79" id="IyJ-8U-bam"/>
-                            <constraint firstItem="1b0-Wf-THM" firstAttribute="baseline" secondItem="AoY-0u-vf3" secondAttribute="baseline" id="JxT-u6-bZU"/>
                             <constraint firstItem="XiU-Nl-mFO" firstAttribute="trailing" secondItem="1b0-Wf-THM" secondAttribute="trailing" constant="78" id="KRK-uo-gPo"/>
-                            <constraint firstItem="1b0-Wf-THM" firstAttribute="leading" secondItem="AoY-0u-vf3" secondAttribute="trailing" constant="84" id="RPp-rr-YQU"/>
                             <constraint firstItem="1b0-Wf-THM" firstAttribute="top" secondItem="x05-nw-q7w" secondAttribute="bottom" constant="8" id="St1-fR-2Lf"/>
                             <constraint firstItem="XiU-Nl-mFO" firstAttribute="bottom" secondItem="4qI-pd-x53" secondAttribute="bottom" constant="13" id="WL7-9u-n6c"/>
                             <constraint firstItem="Fpv-jw-fLO" firstAttribute="leading" secondItem="2Bc-ks-Jkj" secondAttribute="trailing" constant="51" id="d6G-VF-9s9"/>
-                            <constraint firstItem="1U2-Ii-PMX" firstAttribute="centerX" secondItem="AoY-0u-vf3" secondAttribute="centerX" id="eNR-5L-MBq"/>
                             <constraint firstItem="4qI-pd-x53" firstAttribute="top" secondItem="xAn-eT-23f" secondAttribute="bottom" constant="8" id="fqf-f6-WGo"/>
                             <constraint firstItem="XiU-Nl-mFO" firstAttribute="trailing" secondItem="Fpv-jw-fLO" secondAttribute="trailing" constant="122" id="g1v-4w-tXS"/>
                             <constraint firstItem="1b0-Wf-THM" firstAttribute="centerX" secondItem="x05-nw-q7w" secondAttribute="centerX" id="h0d-N7-tvz"/>
@@ -392,10 +409,10 @@
             </objects>
             <point key="canvasLocation" x="2675.5725190839694" y="659.85915492957747"/>
         </scene>
-        <!--View Controller-->
+        <!--GPA Page-->
         <scene sceneID="2Rc-SU-1j8">
             <objects>
-                <viewController id="oxr-mj-kLu" sceneMemberID="viewController">
+                <viewController title="GPA Page" id="oxr-mj-kLu" customClass="GPAViewController" customModule="GPACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tbF-2N-Tk9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -448,6 +465,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="6dW-Yg-De3"/>
+                    <connections>
+                        <outlet property="GPALabel" destination="WEs-Bn-wXR" id="Ih8-zi-Ece"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDW-Q8-Vkj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -456,7 +476,7 @@
         <!--What if?-->
         <scene sceneID="Lee-Iy-1aJ">
             <objects>
-                <viewController title="What if?" id="L9o-wM-hLv" customClass="ViewController" customModule="GPACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="What if?" id="L9o-wM-hLv" customClass="WhatIfViewController" customModule="GPACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2BL-qK-nsR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -575,10 +595,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9c2-xg-Jjq"/>
+                    <connections>
+                        <outlet property="GPALabel" destination="ioa-TQ-voS" id="8B1-KT-0ws"/>
+                        <outlet property="TermLabel" destination="LpB-zh-UcR" id="IDi-2W-BGC"/>
+                        <outlet property="YearLabel" destination="P8v-Ou-bUQ" id="bt2-W5-Ppw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gm5-bh-6To" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2681.679389312977" y="-749.29577464788736"/>
+            <point key="canvasLocation" x="2953" y="-792"/>
         </scene>
     </scenes>
     <resources>

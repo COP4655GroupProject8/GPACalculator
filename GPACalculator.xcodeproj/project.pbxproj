@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		469C709F2BC1E016004F5BDD /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469C709E2BC1E016004F5BDD /* GPAViewController.swift */; };
+		469C70A12BC1E14E004F5BDD /* WhatIfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469C70A02BC1E14E004F5BDD /* WhatIfViewController.swift */; };
+		469C70A32BC1E1B5004F5BDD /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469C70A22BC1E1B5004F5BDD /* GoalsViewController.swift */; };
+		46C17A682BC0676700A3420B /* ParseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46C17A672BC0676700A3420B /* ParseSwift */; };
+		46C17A6C2BC1058900A3420B /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C17A6B2BC1058900A3420B /* Student.swift */; };
+		46C17A6F2BC1DBF300A3420B /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C17A6E2BC1DBF300A3420B /* HomePage.swift */; };
 		CEBA1FC82BB8979600F19A30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA1FC72BB8979600F19A30 /* AppDelegate.swift */; };
 		CEBA1FCA2BB8979600F19A30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA1FC92BB8979600F19A30 /* SceneDelegate.swift */; };
-		CEBA1FCC2BB8979600F19A30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA1FCB2BB8979600F19A30 /* ViewController.swift */; };
 		CEBA1FCF2BB8979600F19A30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBA1FCD2BB8979600F19A30 /* Main.storyboard */; };
 		CEBA1FD12BB8979A00F19A30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBA1FD02BB8979A00F19A30 /* Assets.xcassets */; };
 		CEBA1FD42BB8979A00F19A30 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEBA1FD22BB8979A00F19A30 /* LaunchScreen.storyboard */; };
@@ -19,10 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		469C709E2BC1E016004F5BDD /* GPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
+		469C70A02BC1E14E004F5BDD /* WhatIfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIfViewController.swift; sourceTree = "<group>"; };
+		469C70A22BC1E1B5004F5BDD /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
+		46C17A6B2BC1058900A3420B /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		46C17A6E2BC1DBF300A3420B /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		CEBA1FC42BB8979600F19A30 /* GPACalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPACalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBA1FC72BB8979600F19A30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEBA1FC92BB8979600F19A30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CEBA1FCB2BB8979600F19A30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CEBA1FCE2BB8979600F19A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEBA1FD02BB8979A00F19A30 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEBA1FD32BB8979A00F19A30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,12 +46,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46C17A682BC0676700A3420B /* ParseSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		469C709B2BC1DF98004F5BDD /* GPAPage */ = {
+			isa = PBXGroup;
+			children = (
+				469C709E2BC1E016004F5BDD /* GPAViewController.swift */,
+			);
+			path = GPAPage;
+			sourceTree = "<group>";
+		};
+		469C709C2BC1DFC5004F5BDD /* GoalsPage */ = {
+			isa = PBXGroup;
+			children = (
+				469C70A22BC1E1B5004F5BDD /* GoalsViewController.swift */,
+			);
+			path = GoalsPage;
+			sourceTree = "<group>";
+		};
+		469C709D2BC1DFD9004F5BDD /* WhatIfPage */ = {
+			isa = PBXGroup;
+			children = (
+				469C70A02BC1E14E004F5BDD /* WhatIfViewController.swift */,
+			);
+			path = WhatIfPage;
+			sourceTree = "<group>";
+		};
+		46C17A6D2BC1DB7100A3420B /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				46C17A6E2BC1DBF300A3420B /* HomePage.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
 		CEBA1FBB2BB8979600F19A30 = {
 			isa = PBXGroup;
 			children = (
@@ -62,11 +104,14 @@
 		CEBA1FC62BB8979600F19A30 /* GPACalculator */ = {
 			isa = PBXGroup;
 			children = (
+				469C709D2BC1DFD9004F5BDD /* WhatIfPage */,
+				469C709C2BC1DFC5004F5BDD /* GoalsPage */,
+				469C709B2BC1DF98004F5BDD /* GPAPage */,
+				46C17A6D2BC1DB7100A3420B /* HomePage */,
 				CEBA1FE42BBF45F000F19A30 /* Models */,
 				CEBA1FDF2BBF442500F19A30 /* History */,
 				CEBA1FC72BB8979600F19A30 /* AppDelegate.swift */,
 				CEBA1FC92BB8979600F19A30 /* SceneDelegate.swift */,
-				CEBA1FCB2BB8979600F19A30 /* ViewController.swift */,
 				CEBA1FCD2BB8979600F19A30 /* Main.storyboard */,
 				CEBA1FD02BB8979A00F19A30 /* Assets.xcassets */,
 				CEBA1FD22BB8979A00F19A30 /* LaunchScreen.storyboard */,
@@ -88,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				CEBA1FE52BBF462600F19A30 /* AddClass.swift */,
+				46C17A6B2BC1058900A3420B /* Student.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +155,7 @@
 			);
 			name = GPACalculator;
 			packageProductDependencies = (
+				46C17A672BC0676700A3420B /* ParseSwift */,
 			);
 			productName = GPACalculator;
 			productReference = CEBA1FC42BB8979600F19A30 /* GPACalculator.app */;
@@ -139,6 +186,7 @@
 			);
 			mainGroup = CEBA1FBB2BB8979600F19A30;
 			packageReferences = (
+				46C17A662BC0676700A3420B /* XCRemoteSwiftPackageReference "Parse-Swift" */,
 			);
 			productRefGroup = CEBA1FC52BB8979600F19A30 /* Products */;
 			projectDirPath = "";
@@ -167,12 +215,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEBA1FCC2BB8979600F19A30 /* ViewController.swift in Sources */,
+				469C709F2BC1E016004F5BDD /* GPAViewController.swift in Sources */,
 				CEBA1FC82BB8979600F19A30 /* AppDelegate.swift in Sources */,
 				CEBA1FE62BBF462600F19A30 /* AddClass.swift in Sources */,
 				CEBA1FCA2BB8979600F19A30 /* SceneDelegate.swift in Sources */,
 				CEBA1FE32BBF448C00F19A30 /* AddClassViewController.swift in Sources */,
+				46C17A6C2BC1058900A3420B /* Student.swift in Sources */,
+				469C70A12BC1E14E004F5BDD /* WhatIfViewController.swift in Sources */,
 				CEBA1FE12BBF447C00F19A30 /* HistoryViewController.swift in Sources */,
+				46C17A6F2BC1DBF300A3420B /* HomePage.swift in Sources */,
+				469C70A32BC1E1B5004F5BDD /* GoalsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +445,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		46C17A662BC0676700A3420B /* XCRemoteSwiftPackageReference "Parse-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/parse-community/Parse-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.14.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		46C17A672BC0676700A3420B /* ParseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46C17A662BC0676700A3420B /* XCRemoteSwiftPackageReference "Parse-Swift" */;
+			productName = ParseSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CEBA1FBC2BB8979600F19A30 /* Project object */;
 }
