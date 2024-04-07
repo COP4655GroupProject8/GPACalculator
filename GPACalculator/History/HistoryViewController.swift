@@ -45,8 +45,8 @@ class HistoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         selectedSemester = semesters[defaultSemesterIndex]
         selectedYear = years[defaultYearIndex]
         
-        // Refresh table view with dummy data
-        historyTableView.reloadData()
+        // Load classes for the default semester and year
+        loadClasses()
     }
     
     // MARK: - UIPickerViewDataSource
@@ -87,15 +87,28 @@ class HistoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyData.count
+        if let student = currentStudent,
+           let semester = selectedSemester,
+           let year = selectedYear,
+           let classes = student.getClasses(for: semester, year: year) {
+            return classes.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryTableViewCell
-        let data = dummyData[indexPath.row]
-        cell.className.text = data.course
-        cell.classGrade.text = data.grade
-        cell.classCredit.text = data.credit
+        
+        if let student = currentStudent,
+           let semester = selectedSemester,
+           let year = selectedYear,
+           let classes = student.getClasses(for: semester, year: year) {
+            let classObj = classes[indexPath.row]
+            cell.className.text = classObj.name
+            cell.classGrade.text = classObj.grade
+            cell.classCredit.text = "\(classObj.creditHours)"
+        }
+        
         return cell
     }
     
@@ -112,4 +125,22 @@ class HistoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         navigationController?.pushViewController(vc, animated: true)
     }
+    func loadClasses() {
+        guard let student = currentStudent,
+              let semester = selectedSemester,
+              let year = selectedYear else {
+            return
+        }
+        
+        if let classes = student.getClasses(for: semester, year: year) {
+            // Update table view with the fetched classes
+            historyTableView.reloadData()
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Reload data whenever the view is about to appear
+        loadClasses()
+    }
+    
 }
