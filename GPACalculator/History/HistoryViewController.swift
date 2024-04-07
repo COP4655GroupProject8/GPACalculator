@@ -112,6 +112,32 @@ class HistoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         return cell
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let student = currentStudent,
+                  let semester = selectedSemester,
+                  let year = selectedYear,
+                  let classes = student.getClasses(for: semester, year: year) else {
+                return
+            }
+            
+            // Get the class to be deleted
+            let classToDelete = classes[indexPath.row]
+            
+            // Remove the class using the removeClass method of the Student class
+            student.removeClass(for: semester, year: year, className: classToDelete.name)
+            
+            // Reload the table view to reflect the changes
+            tableView.reloadData()
+        }
+    }
+
+
+    
     // MARK: - IBActions
     
     @IBAction func addClassView(_ sender: Any) {
