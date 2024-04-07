@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
         }
         
         User.login(username: username, password: password) { [weak self] result in
-
+            
             switch result {
             case .success(let user):
                 print("✅ Successfully logged in as user: \(user)")

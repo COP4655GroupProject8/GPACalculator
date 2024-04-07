@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		469C709F2BC1E016004F5BDD /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469C709E2BC1E016004F5BDD /* GPAViewController.swift */; };
 		469C70A12BC1E14E004F5BDD /* WhatIfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469C70A02BC1E14E004F5BDD /* WhatIfViewController.swift */; };
-		469C70A32BC1E1B5004F5BDD /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469C70A22BC1E1B5004F5BDD /* GoalsViewController.swift */; };
 		46B509A12BC1EA25003F0337 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B509A02BC1EA25003F0337 /* User.swift */; };
 		46B509A42BC1EA34003F0337 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B509A22BC1EA34003F0337 /* LoginViewController.swift */; };
 		46B509A52BC1EA34003F0337 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B509A32BC1EA34003F0337 /* SignUpViewController.swift */; };
@@ -32,7 +31,6 @@
 /* Begin PBXFileReference section */
 		469C709E2BC1E016004F5BDD /* GPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
 		469C70A02BC1E14E004F5BDD /* WhatIfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIfViewController.swift; sourceTree = "<group>"; };
-		469C70A22BC1E1B5004F5BDD /* GoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		46B509A02BC1EA25003F0337 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../LoginPage/User.swift; sourceTree = "<group>"; };
 		46B509A22BC1EA34003F0337 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		46B509A32BC1EA34003F0337 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -71,14 +69,6 @@
 				469C709E2BC1E016004F5BDD /* GPAViewController.swift */,
 			);
 			path = GPAPage;
-			sourceTree = "<group>";
-		};
-		469C709C2BC1DFC5004F5BDD /* GoalsPage */ = {
-			isa = PBXGroup;
-			children = (
-				469C70A22BC1E1B5004F5BDD /* GoalsViewController.swift */,
-			);
-			path = GoalsPage;
 			sourceTree = "<group>";
 		};
 		469C709D2BC1DFD9004F5BDD /* WhatIfPage */ = {
@@ -129,7 +119,6 @@
 			children = (
 				46B5099F2BC1EA18003F0337 /* LoginPage */,
 				469C709D2BC1DFD9004F5BDD /* WhatIfPage */,
-				469C709C2BC1DFC5004F5BDD /* GoalsPage */,
 				469C709B2BC1DF98004F5BDD /* GPAPage */,
 				46C17A6D2BC1DB7100A3420B /* HomePage */,
 				CEBA1FE42BBF45F000F19A30 /* Models */,
@@ -254,7 +243,6 @@
 				46B509AB2BC306F5003F0337 /* HistoryTableViewCell.swift in Sources */,
 				CEBA1FE12BBF447C00F19A30 /* HistoryViewController.swift in Sources */,
 				46C17A6F2BC1DBF300A3420B /* HomePage.swift in Sources */,
-				469C70A32BC1E1B5004F5BDD /* GoalsViewController.swift in Sources */,
 				46B509A52BC1EA34003F0337 /* SignUpViewController.swift in Sources */,
 				46B509A12BC1EA25003F0337 /* User.swift in Sources */,
 			);
