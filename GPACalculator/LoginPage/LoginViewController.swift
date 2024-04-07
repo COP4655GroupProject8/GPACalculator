@@ -28,9 +28,9 @@ class LoginViewController: UIViewController {
             showMissingFieldsAlert()
             return
         }
-
+        
         User.login(username: username, password: password) { [weak self] result in
-
+            
             switch result {
             case .success(let user):
                 print("✅ Successfully logged in as user: \(user)")
@@ -58,5 +58,7 @@ class LoginViewController: UIViewController {
         alertController.addAction(action)
         present(alertController, animated: true)
     }
+    
+    
 }
 
