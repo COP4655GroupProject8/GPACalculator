@@ -7,27 +7,46 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class HistoryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var termPicker: UIPickerView!
     @IBOutlet weak var yearPicker: UIPickerView!
+    @IBOutlet weak var historyTableView: UITableView!
     
     var currentStudent: Student?
-    
     let semesters = ["Spring", "Summer", "Fall"]
     let years = Array(2000...2024)
-    
     var selectedSemester: String?
     var selectedYear: Int?
     
+    // Dummy data
+    let dummyData: [(course: String, grade: String, credit: String)] = [
+        ("Mathematics", "A", "3"),
+        ("Physics", "B", "4"),
+        ("English", "C", "3")
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         termPicker.delegate = self
         termPicker.dataSource = self
-        
         yearPicker.delegate = self
         yearPicker.dataSource = self
+        historyTableView.dataSource = self
+        historyTableView.delegate = self
+        
+        // Set default values for semester and year
+        let defaultSemesterIndex = semesters.firstIndex(of: "Spring") ?? 0
+        let defaultYearIndex = years.firstIndex(of: 2024) ?? 0
+        termPicker.selectRow(defaultSemesterIndex, inComponent: 0, animated: false)
+        yearPicker.selectRow(defaultYearIndex, inComponent: 0, animated: false)
+        
+        // Set selected semester and year
+        selectedSemester = semesters[defaultSemesterIndex]
+        selectedYear = years[defaultYearIndex]
+        
+        // Load classes for the default semester and year
+        loadClasses()
     }
     
     // MARK: - UIPickerViewDataSource
@@ -60,7 +79,64 @@ class HistoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         } else {
             selectedYear = years[row]
         }
+        
+        // Refresh table view with updated data
+        historyTableView.reloadData()
     }
+    
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let student = currentStudent,
+           let semester = selectedSemester,
+           let year = selectedYear,
+           let classes = student.getClasses(for: semester, year: year) {
+            return classes.count
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryTableViewCell
+        
+        if let student = currentStudent,
+           let semester = selectedSemester,
+           let year = selectedYear,
+           let classes = student.getClasses(for: semester, year: year) {
+            let classObj = classes[indexPath.row]
+            cell.className.text = classObj.name
+            cell.classGrade.text = classObj.grade
+            cell.classCredit.text = "\(classObj.creditHours)"
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let student = currentStudent,
+                  let semester = selectedSemester,
+                  let year = selectedYear,
+                  let classes = student.getClasses(for: semester, year: year) else {
+                return
+            }
+            
+            // Get the class to be deleted
+            let classToDelete = classes[indexPath.row]
+            
+            // Remove the class using the removeClass method of the Student class
+            student.removeClass(for: semester, year: year, className: classToDelete.name)
+            
+            // Reload the table view to reflect the changes
+            tableView.reloadData()
+        }
+    }
+
+
     
     // MARK: - IBActions
     
@@ -75,4 +151,22 @@ class HistoryViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         navigationController?.pushViewController(vc, animated: true)
     }
+    func loadClasses() {
+        guard let student = currentStudent,
+              let semester = selectedSemester,
+              let year = selectedYear else {
+            return
+        }
+        
+        if let classes = student.getClasses(for: semester, year: year) {
+            // Update table view with the fetched classes
+            historyTableView.reloadData()
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Reload data whenever the view is about to appear
+        loadClasses()
+    }
+    
 }
