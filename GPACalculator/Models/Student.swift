@@ -1,7 +1,7 @@
 class Class {
-    let name: String
-    let creditHours: Int
-    let grade: String
+    var name: String
+    var creditHours: Int
+    var grade: String
     
     init(name: String, creditHours: Int, grade: String) {
         self.name = name

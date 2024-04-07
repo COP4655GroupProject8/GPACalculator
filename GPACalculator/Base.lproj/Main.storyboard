@@ -557,6 +557,9 @@
                                                     <rect key="frame" x="245" y="17" width="97" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="gradeChanged:" destination="aA2-Za-RXT" eventType="editingDidEnd" id="dWv-ko-t9m"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>

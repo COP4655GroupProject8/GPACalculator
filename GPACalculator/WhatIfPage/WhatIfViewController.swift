@@ -22,23 +22,28 @@ class WhatIfViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     let terms = ["Summer", "Spring", "Fall"]
     let years = Array(2000...2024).map { String($0) }
+    var temporaryGrades: [String] = [] // Temporary list to hold current grades
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ClassesTable.dataSource = self
-        print(currentStudent?.studentID)
-        // Set delegate and data source for TermUIPicker and YearUIPicker
+        // Set up delegates and data sources
         TermUIPicker.delegate = self
         TermUIPicker.dataSource = self
         YearUIPicker.delegate = self
         YearUIPicker.dataSource = self
-
-        // Set default selection for TermUIPicker and YearUIPicker
-        TermUIPicker.selectRow(2, inComponent: 0, animated: false) // Default to "Fall"
-        YearUIPicker.selectRow(24, inComponent: 0, animated: false) // Default to "2024"
-        calculateAndDisplayGPA()
+        ClassesTable.dataSource = self
+        
+        // Select default values for pickers
+        let defaultTermIndex = 2 // Default to "Fall"
+        let defaultYearIndex = years.firstIndex(of: "2024") ?? 0 // Default to "2024"
+        TermUIPicker.selectRow(defaultTermIndex, inComponent: 0, animated: false)
+        YearUIPicker.selectRow(defaultYearIndex, inComponent: 0, animated: false)
+        
+        // Fetch classes and calculate/display GPA
         getClasses()
+        calculateAndDisplayGPA() // Call the method here
     }
+
 
     // MARK: - UIPickerViewDataSource methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -65,24 +70,10 @@ class WhatIfViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        calculateAndDisplayGPA()
         getClasses()
+        calculateAndDisplayGPA()
     }
     
-    func calculateAndDisplayGPA() {
-        let selectedTermIndex = TermUIPicker.selectedRow(inComponent: 0)
-        let selectedTerm = terms[selectedTermIndex]
-
-        let selectedYearIndex = YearUIPicker.selectedRow(inComponent: 0)
-        let selectedYear = years[selectedYearIndex]
-
-        if let student = currentStudent {
-            let hypotheticalGPA = student.calculateSemesterGPA(semester: selectedTerm, year: Int(selectedYear) ?? 2024)
-            GPALabel.text = String(format: "%.2f", hypotheticalGPA ?? "N/A")
-        } else {
-            GPALabel.text = "N/A"
-        }
-    }
     
     func getClasses() {
         let selectedTermIndex = TermUIPicker.selectedRow(inComponent: 0)
@@ -112,10 +103,100 @@ class WhatIfViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             cell.className.text = classObject.name
             cell.classCredit.text = String(classObject.creditHours)
             cell.classGrade.text = classObject.grade
+            
+            // Update GPA whenever the grade is changed
+            cell.gradeChangedCallback = { [weak self] newGrade in
+                classObject.grade = newGrade
+                self?.updateGPAWithCurrentClasses()
+            }
         }
         
         return cell
     }
-
+    func updateGPAWithCurrentClasses() {
+           var totalCreditHours = 0
+           var totalQualityPoints = 0
+           
+           // Iterate over all visible cells in the table view
+           for cell in ClassesTable.visibleCells as! [ClassTableViewCell] {
+               // Access the credit hour and grade from each cell
+               if let credit = Int(cell.classCredit.text ?? "0"), let grade = cell.classGrade.text {
+                   // Calculate quality points for each class
+                   let qualityPoints = calculateQualityPoints(credit: credit, grade: grade)
+                   // Update total credit hours and quality points
+                   totalCreditHours += credit
+                   totalQualityPoints += qualityPoints
+               }
+           }
+           
+           // Calculate GPA based on total quality points and credit hours
+           let gpa = calculateGPA(totalQualityPoints: totalQualityPoints, totalCreditHours: totalCreditHours)
+           
+           // Update GPA label with the new GPA value
+           GPALabel.text = String(format: "%.2f", gpa)
+       }
+       
+       // Calculate quality points for a given credit hour and grade
+       func calculateQualityPoints(credit: Int, grade: String) -> Int {
+           // Implement your logic to convert grade to quality points
+           // For example:
+           switch grade {
+           case "A":
+               return credit * 4
+           case "B":
+               return credit * 3
+           case "C":
+               return credit * 2
+           case "D":
+               return credit * 1
+           case "F":
+               return 0
+           default:
+               return 0 // Handle invalid grades here
+           }
+       }
+       
+       // Calculate GPA based on total quality points and credit hours
+       func calculateGPA(totalQualityPoints: Int, totalCreditHours: Int) -> Double {
+           if totalCreditHours == 0 {
+               return 0.0
+           }
+           return Double(totalQualityPoints) / Double(totalCreditHours)
+       }
+    func calculateAndDisplayGPA() {
+        // Optional chaining used here to safely unwrap allClasses
+        guard let allClasses = allClasses, !allClasses.isEmpty else {
+            // Reset GPA to 0 if there are no classes selected or displayed
+            GPALabel.text = "0.00"
+            return
+        }
         
+        var totalCreditHours = 0
+        var totalQualityPoints = 0
+        
+        for classObject in allClasses {
+            let credit = classObject.creditHours
+            let grade = classObject.grade
+            
+            // Perform GPA calculation
+            let qualityPoints = calculateQualityPoints(credit: credit, grade: grade)
+            totalCreditHours += credit
+            totalQualityPoints += qualityPoints
+        }
+
+        // Calculate GPA based on total quality points and credit hours
+        let gpa = calculateGPA(totalQualityPoints: totalQualityPoints, totalCreditHours: totalCreditHours)
+        
+        // Update GPA label with the new GPA value
+        GPALabel.text = String(format: "%.2f", gpa)
+    }
+
+    
+    // Handle grade change in a cell
+    func updateGradeForClass(at indexPath: IndexPath, newGrade: String) {
+        // Update temporary grades list
+        temporaryGrades[indexPath.row] = newGrade
+        // Recalculate GPA with updated grades
+        calculateAndDisplayGPA()
+    }
 }
