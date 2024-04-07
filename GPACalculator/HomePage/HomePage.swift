@@ -9,6 +9,8 @@ import UIKit
 
 class HomePageViewController: UIViewController {
     var currentStudent: Student?
+    @IBOutlet weak var UsernameLabel: UITextField!
+
     
     @IBAction func LogOutButtonClick(_ sender: Any) {
         showConfirmLogoutAlert()
@@ -36,12 +38,18 @@ class HomePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UsernameLabel.text = "test user"
+        // Do any additional setup after loading the view.
+    
+        
         // Initialize a fake student
         currentStudent = Student(studentID: "123456789")
         currentStudent?.addClass(semester: "Spring", year: 2024, className: "Math", creditHours: 3, grade: "A")
         currentStudent?.addClass(semester: "Spring", year: 2024, className: "Science", creditHours: 4, grade: "B")
         print(currentStudent?.studentID)
         // Do any additional setup after loading the view.
+        
     }
     
     private func showConfirmLogoutAlert() {

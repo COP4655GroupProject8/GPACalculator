@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
             showMissingFieldsAlert()
             return
         }
-
+        
         User.login(username: username, password: password) { [weak self] result in
 
             switch result {
@@ -58,5 +58,7 @@ class LoginViewController: UIViewController {
         alertController.addAction(action)
         present(alertController, animated: true)
     }
+    
+    
 }
 
