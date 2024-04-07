@@ -22,6 +22,9 @@ class HomePageViewController: UIViewController {
     @IBAction func HistoryButton(_ sender: Any) {
     }
     @IBAction func WhatIfButton(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "WhatIfViewController") as! WhatIfViewController
+           vc.currentStudent = currentStudent
+           self.navigationController?.pushViewController(vc, animated: true) // Push the GPAViewController onto the navigation stack
     }
     
     @IBAction func GoalsButton(_ sender: Any) {

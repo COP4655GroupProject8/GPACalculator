@@ -1,8 +1,10 @@
 class Class {
+    let name: String
     let creditHours: Int
     let grade: String
     
-    init(creditHours: Int, grade: String) {
+    init(name: String, creditHours: Int, grade: String) {
+        self.name = name
         self.creditHours = creditHours
         self.grade = grade
     }
@@ -23,7 +25,7 @@ class Student {
         if self.classes[semesterKey] == nil {
             self.classes[semesterKey] = [:]
         }
-        self.classes[semesterKey]?[className] = Class(creditHours: creditHours, grade: grade)
+        self.classes[semesterKey]?[className] = Class(name: className, creditHours: creditHours, grade: grade)
     }
     
     func calculateSemesterGPA(semester: String, year: Int) -> Double? {
@@ -65,5 +67,23 @@ class Student {
         // Define your grading scale here, e.g., ["A": 4.0, "B": 3.0, "C": 2.0, ...]
         let gradingScale = ["A": 4.0, "B": 3.0, "C": 2.0, "D": 1.0, "F": 0.0]
         return gradingScale[grade] ?? 0.0
+    }
+    
+    func getClasses(for semester: String, year: Int) -> [Class]? {
+        let semesterKey = "\(semester)-\(year)"
+        return self.classes[semesterKey]?.values.map { $0 }
+    }
+
+    func addClass(for semester: String, year: Int, className: String, creditHours: Int, grade: String) {
+        let semesterKey = "\(semester)-\(year)"
+        if self.classes[semesterKey] == nil {
+            self.classes[semesterKey] = [:]
+        }
+        self.classes[semesterKey]?[className] = Class(name: className, creditHours: creditHours, grade: grade)
+    }
+
+    func removeClass(for semester: String, year: Int, className: String) {
+        let semesterKey = "\(semester)-\(year)"
+        self.classes[semesterKey]?[className] = nil
     }
 }
