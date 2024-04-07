@@ -262,17 +262,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4qI-pd-x53">
-                                <rect key="frame" x="16" y="379" width="361" height="426"/>
+                                <rect key="frame" x="16" y="482" width="361" height="323"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="67" id="Eyb-t3-UVP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HistoryCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="67" id="Eyb-t3-UVP" customClass="HistoryTableViewCell" customModule="GPACalculator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="361" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eyb-t3-UVP" id="MfK-3G-5uz">
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-Ab-GOh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-Ab-GOh">
                                                     <rect key="frame" x="20" y="11" width="213" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="213" id="pAA-ri-kQS"/>
@@ -281,8 +281,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yf-EE-HnG">
-                                                    <rect key="frame" x="263" y="17" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Yf-EE-HnG">
+                                                    <rect key="frame" x="299" y="17" width="47" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Credit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbf-6o-Rl0">
+                                                    <rect key="frame" x="159" y="17" width="47" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -296,6 +303,12 @@
                                                 <constraint firstItem="9Yf-EE-HnG" firstAttribute="top" secondItem="MfK-3G-5uz" secondAttribute="topMargin" constant="6" id="vuJ-Za-dwg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="HistoryCell"/>
+                                        <connections>
+                                            <outlet property="classCredit" destination="gbf-6o-Rl0" id="DmE-Xz-tZa"/>
+                                            <outlet property="classGrade" destination="9Yf-EE-HnG" id="wnD-D2-3qx"/>
+                                            <outlet property="className" destination="cF0-Ab-GOh" id="w59-wz-E8a"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -316,6 +329,15 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bf-4x-902">
                                 <rect key="frame" x="192" y="154" width="151" height="95"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Classes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNd-Ea-FhR">
+                                <rect key="frame" x="16" y="405" width="147" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="kf8-NA-g1l"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XiU-Nl-mFO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -333,11 +355,15 @@
                             <constraint firstItem="XiU-Nl-mFO" firstAttribute="trailing" secondItem="2bf-4x-902" secondAttribute="trailing" constant="50" id="TAe-lV-n3s"/>
                             <constraint firstItem="JCL-vf-APh" firstAttribute="top" secondItem="1U2-Ii-PMX" secondAttribute="bottom" constant="8" id="U2d-fF-TuC"/>
                             <constraint firstItem="xAn-eT-23f" firstAttribute="top" secondItem="2bf-4x-902" secondAttribute="bottom" constant="87" id="UMR-y3-MmW"/>
+                            <constraint firstItem="VNd-Ea-FhR" firstAttribute="leading" secondItem="1U2-Ii-PMX" secondAttribute="leading" id="W8t-RE-duV"/>
                             <constraint firstItem="XiU-Nl-mFO" firstAttribute="bottom" secondItem="4qI-pd-x53" secondAttribute="bottom" constant="13" id="WSH-aB-9ty"/>
                             <constraint firstItem="1U2-Ii-PMX" firstAttribute="top" secondItem="XiU-Nl-mFO" secondAttribute="top" constant="57" id="bX9-E7-Y44"/>
                             <constraint firstItem="XiU-Nl-mFO" firstAttribute="trailing" secondItem="xAn-eT-23f" secondAttribute="trailing" constant="135" id="btU-zO-oaf"/>
                             <constraint firstItem="XiU-Nl-mFO" firstAttribute="trailing" secondItem="1U2-Ii-PMX" secondAttribute="trailing" constant="192" id="hZ6-KK-VjU"/>
+                            <constraint firstItem="VNd-Ea-FhR" firstAttribute="top" secondItem="xAn-eT-23f" secondAttribute="bottom" constant="34" id="la2-NK-ojc"/>
                             <constraint firstItem="1U2-Ii-PMX" firstAttribute="leading" secondItem="WPB-Og-l2K" secondAttribute="leadingMargin" id="ouK-sJ-6dZ"/>
+                            <constraint firstItem="XiU-Nl-mFO" firstAttribute="trailing" secondItem="VNd-Ea-FhR" secondAttribute="trailing" constant="230" id="tFj-fR-cFy"/>
+                            <constraint firstItem="4qI-pd-x53" firstAttribute="top" secondItem="VNd-Ea-FhR" secondAttribute="bottom" constant="8" id="ttX-ff-dh0"/>
                             <constraint firstItem="4qI-pd-x53" firstAttribute="top" secondItem="xAn-eT-23f" secondAttribute="bottom" constant="8" id="uz5-jZ-B4F"/>
                             <constraint firstItem="1U2-Ii-PMX" firstAttribute="centerX" secondItem="JCL-vf-APh" secondAttribute="centerX" id="wmA-mQ-0yo"/>
                         </constraints>
@@ -345,13 +371,14 @@
                     <navigationItem key="navigationItem" id="N8c-bB-iJD"/>
                     <connections>
                         <outlet property="TermPicker" destination="2bf-4x-902" id="Iwj-ym-8GA"/>
+                        <outlet property="historyTableView" destination="4qI-pd-x53" id="wSY-SU-BHK"/>
                         <outlet property="termPicker" destination="JCL-vf-APh" id="ANI-Ko-Ffq"/>
                         <outlet property="yearPicker" destination="2bf-4x-902" id="XeZ-OE-CC4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QoB-7h-U5h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="775"/>
+            <point key="canvasLocation" x="1762.5954198473282" y="774.64788732394368"/>
         </scene>
         <!--Add Class-->
         <scene sceneID="fdb-aP-yxP">
