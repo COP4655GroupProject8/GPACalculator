@@ -106,7 +106,7 @@ The purpose of our app is to create an app that allow FIU students to easily cal
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
 ### Progress Video
-
+Update 1:
 https://github.com/COP4655GroupProject8/GPACalculator/assets/122504202/3599b459-28b8-4fe6-8b58-5150dd12c569
 
 
@@ -115,8 +115,17 @@ https://github.com/COP4655GroupProject8/GPACalculator/assets/122504202/3599b459-
 
 
 
-
+Update 2:
 https://github.com/COP4655GroupProject8/GPACalculator/assets/122504202/e2c96e4a-4457-4ffa-866c-e497b3146f92
+
+
+
+
+
+
+Final Demo:
+https://youtu.be/jmZYP8-igx4
+
 
 
 
